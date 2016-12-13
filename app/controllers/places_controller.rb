@@ -1,6 +1,8 @@
 class PlacesController < ApplicationController
   def index
-    @places = Place.order('created_at DESC')
+    binding.pry
+    file = File.read('lib/location.json')
+    @places = JSON.parse(file)
     render json: @places
   end
 
